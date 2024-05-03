@@ -10,3 +10,7 @@ body{
 .ms-txt-color{
     color: #808B99;
 }
+
+.ms-border{
+    border: solid 1px #001632;
+}
