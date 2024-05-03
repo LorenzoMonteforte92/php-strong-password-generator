@@ -1,15 +1,6 @@
-<?php require __DIR__ . '/partials/functions.php'; ?>
 <?php
-$passwordLength = isset($_GET['length']) ? intval($_GET['length']) : '';
-
-$generatedPass = generateRandomPassword($passwordLength);
-
-if(!empty($passwordLength)){
-    session_start();
-    $_SESSION['password'] = $generatedPass;
-    header('Location: ./showPassword.php');
-};
-
+session_start();
+$userPassword = $_SESSION['password'];
 ?>
 
 <!DOCTYPE html>
@@ -33,20 +24,12 @@ if(!empty($passwordLength)){
         </div>
     </header>
     <main>
-        <div class="container mt-5">
+    <div class="container mt-5">
             <div class="row justify-content-center">
-                <div class="col-5 ms-bg p-3">
-                <form method="GET" >
-                    <div class="row mb-3 justify-content-center">
-                        <div class="col-9">
-                            <label for="length" class="form-label">Lunghezza password</label>
-                        </div>
-                        <div class="col-3">
-                            <input type="number" class="form-control" id="length" name="length" >
-                        </div>
+                <div class="col-5 justify-content-center align-items-center ms-bg p-3">
+                    <div class="text-center">
+                        La password generata per te è: <span class="fw-bold" ><?php echo $userPassword;?></span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
                 </div>
             </div>
         </div>
