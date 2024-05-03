@@ -12,9 +12,15 @@
             //se $allowRepetitions è falsa genera un numero,
             //se il carattere è nell'array sparalo dentro 
             } else{
-                if(!in_array($characters[$rndmCharacter], $password)){
-                    $password[] = $characters[$rndmCharacter]; 
+                while(count($password) < $length){
+                    $rndmCharacter = rand(0, $numOfCharacters);
+                    
+                    if(!in_array($characters[$rndmCharacter], $password)){
+                        $password[] = $characters[$rndmCharacter]; 
+                    }
                 }
+                
+                
                 
             }
             
